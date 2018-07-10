@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MVCPraticeTwo.Models.VirtualPet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </div>
+        <div class="col-3">
+            @Html.DisplayNameFor(model => model.Age)
+        </div>
+        <div class="col-3">
+            @Html.DisplayNameFor(model => model.Hunger)
+        </div>
+        <div class="col-3">
+            @Html.DisplayNameFor(model => model.Thirst)
+        </div>
+    </div>
+
+@foreach (var item in Model) {
+    <div class="row">
+        <div class=" col">
+            @Html.DisplayFor(modelItem => item.Name)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(modelItem => item.Age)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(modelItem => item.Hunger)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(modelItem => item.Thirst)
+        </div>
+        <div class="row">
+            @Html.ActionLink("Edit", "Edit", new { id=item.VirtualPetID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VirtualPetID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VirtualPetID })
+        </div>
+    </div>
+}
+
+</div>
